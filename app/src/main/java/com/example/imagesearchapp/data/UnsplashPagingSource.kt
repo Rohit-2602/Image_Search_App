@@ -18,7 +18,7 @@ class UnsplashPagingSource(private val unsplashApi: UnsplashApi, private val que
             return LoadResult.Page(
                 data = photos,
                 prevKey = if (position == UNSPLASH_STARTING_INDEX) null else position - 1,
-                nextKey = if (photos.isEmpty()) null else position - 1
+                nextKey = if (photos.isEmpty()) null else position + 1
             )
         } catch (exception: IOException) {
             LoadResult.Error(exception)
